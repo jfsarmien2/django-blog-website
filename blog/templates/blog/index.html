@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}
+  Blog Page
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'blog/index.css' %}" />
+  <link rel="stylesheet" href="{% static 'blog/post.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <section id="welcome">
+    <header>
+      <img src="https://media.istockphoto.com/id/523478288/photo/handsome-young-man-on-white-background.jpg?s=612x612&w=0&k=20&c=RRiPC6WFWcDcf_JSRofqmqZ1OGJxgXqPvxt2lFyrp_c=" alt="JS- The Author of this blog" />
+      <h2>JS Blog</h2>
+    </header>
+    <p>Hi, I'm JS and I love to blog about tech and the world!</p>
+  </section>
+
+  <section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+    <ul>
+      {% for post in posts %}
+        {% include 'blog/includes/post.html' %}
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>What I Do</h2>
+    <p>I love programming and and I enjoy exploring new technology in general.</p>
+    <p>My goal is to keep growing as a developer.</p>
+  </section>
+{% endblock %}
